@@ -11,79 +11,127 @@ export default function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    // Static credentials
-    const validCompany = "ERP123";
-    const validUser = "admin";
-    const validPass = "123456";
-
+    const validCompany = "ERPOM3642";
+    const validUser = "OMPATEL";
+    const validPass = "omerp@123";
     if (companyCode === validCompany && username === validUser && password === validPass) {
-      router.push("/dashboard"); // redirect after login
+      router.push("/dashboard");
     } else {
       setError("Invalid credentials. Please try again.");
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-50">
-      <div className="flex bg-white rounded-2xl shadow-lg overflow-hidden max-w-4xl w-full">
-        {/* Left Section */}
-        <div className="w-1/2 bg-blue-100 flex flex-col justify-center items-center p-8 text-center">
-          <h1 className="text-5xl font-bold text-blue-700 mb-4">Simplified ERP</h1>
-          <p className="text-gray-600">
-            Manage your business operations efficiently — Accounting, HR, Inventory & more.
-          </p>
-        </div>
-
-        {/* Right Section - Login Form */}
-        <div className="w-1/2 p-8 flex flex-col justify-center">
-          <div className="flex flex-col items-center mb-6">
-            <div className="bg-blue-600 w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-              E
+    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden shadow-lg ring-1 ring-slate-200 bg-white">
+        {/* Left: Brand/Intro (professional background color distinct from form) */}
+        <div className="relative hidden md:flex flex-col justify-center p-10 lg:p-12 text-white"
+             style={{ background: "linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%)" }}>
+          <div className="max-w-md">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-10 w-10 rounded-lg bg-white/15 grid place-items-center font-semibold">
+                E
+              </div>
+              <span className="text-sm/5 tracking-wide text-white/80">ERP Solutions</span>
             </div>
-            <h2 className="mt-4 text-2xl font-semibold text-gray-700">Sign in</h2>
+            <h1 className="text-4xl font-semibold leading-tight">Simplified ERP</h1>
+            <p className="mt-3 text-white/85">
+              Streamline Accounting, Inventory, and operations with clarity and control.
+            </p>
+            <div className="mt-6 h-px bg-white/20" />
+            <p className="mt-4 text-xs text-white/70">
+              Version 1.0.0 • © 2025 ERP Solutions Pvt. Ltd.
+            </p>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-4">
-            <input
-              type="text"
-              placeholder="Company Code"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              value={companyCode}
-              onChange={(e) => setCompanyCode(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Username"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {error && <p className="text-red-500 text-sm">{error}</p>}
+          {/* Decorative subtle shapes for professionalism */}
+          <div className="pointer-events-none absolute -top-10 -right-10 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
+          <div className="pointer-events-none absolute bottom-6 right-6 h-20 w-20 rounded-full bg-white/10 blur-xl" />
+        </div>
+
+        {/* Right: Simple responsive form */}
+        <div className="p-6 sm:p-8 lg:p-12">
+          {/* Mobile brand header */}
+          <div className="md:hidden mb-6">
+            <div className="flex items-center gap-3">
+              <div className="h-9 w-9 rounded-md bg-blue-600 text-white grid place-items-center font-semibold">
+                E
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-slate-800">Simplified ERP</h2>
+                <p className="text-xs text-slate-500">Welcome back</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 className="text-2xl font-semibold text-slate-900">Sign in</h3>
+          <p className="mt-1 text-sm text-slate-500">
+            Access your workspace with your credentials.
+          </p>
+
+          <form onSubmit={handleLogin} className="mt-6 space-y-4">
+            {/* Company Code */}
+            <div>
+              <label className="sr-only">Company code</label>
+              <input
+                type="text"
+                placeholder="Company code"
+                className="w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+                value={companyCode}
+                onChange={(e) => setCompanyCode(e.target.value)}
+                autoComplete="organization"
+              />
+            </div>
+
+            {/* Username */}
+            <div>
+              <label className="sr-only">Username</label>
+              <input
+                type="text"
+                placeholder="Username"
+                className="w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                autoComplete="username"
+              />
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="sr-only">Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+              />
+            </div>
+
+            {error && (
+              <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">
+                {error}
+              </p>
+            )}
 
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold"
+              className="w-full rounded-xl bg-blue-600 text-white py-3 font-medium shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 active:scale-[0.99] transition"
             >
               Sign in
             </button>
 
             <button
               type="button"
-              className="w-full border border-gray-300 text-gray-700 rounded-lg py-2 font-medium hover:bg-gray-100"
+              className="w-full rounded-xl border border-slate-200 text-slate-700 bg-white py-3 font-medium hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200 active:scale-[0.99] transition"
             >
               Support
             </button>
           </form>
 
-          <p className="text-xs text-gray-400 text-center mt-4">
+          {/* Mobile footer */}
+          <p className="md:hidden text-xs text-slate-400 text-center mt-6">
             Version 1.0.0 • © 2025 ERP Solutions Pvt. Ltd.
           </p>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 export default function Dashboard() {
   const transports = [
@@ -38,25 +39,9 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        <div>
-          <h2 className="text-3xl font-bold text-slate-900">
-            Welcome Back 👋
-          </h2>
-          <p className="text-slate-500 mt-1">
-            Manage transport firms and operations easily.
-          </p>
-        </div>
 
         {/* Transport Section */}
-        <div className="mt-10 bg-white border border-slate-200 shadow-md rounded-2xl p-6">
-          <h3 className="text-xl font-semibold text-slate-800">
-            Active Transport Firms
-          </h3>
-
-          <p className="text-sm text-slate-500 mt-1 mb-6">
-            Add / edit / remove transport firms from this module.
-          </p>
-
+        <div className="bg-white">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {transports.map((t, index) => (
               <div
@@ -82,7 +67,7 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
-
+      <Footer />
     </div>
   );
 }

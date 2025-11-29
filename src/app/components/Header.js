@@ -22,10 +22,10 @@ export default function Header() {
 
         {/* Add Transportation Button (Primary Button) */}
         <button
-          onClick={() => router.push("/add-transportation")}
+          onClick={() => router.push("/add-transport")}
           className="px-4 py-2 cursor-pointer rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition shadow-sm"
         >
-          Add Transportation
+          Add Transport
         </button>
 
         {/* Logout Button (Minimal Red Text + Icon) */}
